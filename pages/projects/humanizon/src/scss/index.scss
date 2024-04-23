@@ -1,0 +1,240 @@
+@import "interface";
+@import "reset";
+@import "function";
+
+/*======================Wrap======================*/
+#wrap{
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+
+/*====================Header====================*/
+.header{
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 0 24px; height: 4rem;
+    @include flex; align-content: center;
+    @media screen and (min-width:768px) { padding: 0 40px;}
+    @media screen and (min-width:1200px) { padding: 0 90px; height: 5.4rem;}
+    .h-menu{
+        z-index:200; width: 32px; height: 32px;
+        cursor: pointer;
+        background: url(../../../../../src/img/Function=Main\,\ Dark=True.svg);
+    }
+}
+
+/*====================Container====================*/
+.container {
+    .mainVisual{
+        height: 540px;
+        @media screen and (min-width:960px) { height: 600px;}
+        background-color: $color-main;
+        .inner{
+            height: 100%;
+            .titleWrap{
+                .mainTitle{margin-bottom: 1rem; @include font-mainVisualTitle;  line-height: 1.2;}
+                p{ @include font-subTitle; font-weight: 200; }
+            }
+            background-image: url(../img/mainVisual.png);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 360px;
+ 
+        }   
+    }
+
+    /*----------section 공통----------*/
+    .section {
+        padding: 2rem 0;
+        .inner {
+            padding: 0 24px;
+            @include mobile { padding: 0 40px;}
+            @include tablet-mini { padding: 2rem 40px;}
+            @include desktop { margin: 0 auto; padding: 4rem 60px; width: 1200px; max-width: 1200px;}
+            @media screen and (min-width:1400px) { width: 1400px; max-width: 1400px;}
+            .sc-title-wrap{
+                .sub-title { @include font-basic; font-weight: 500; margin-bottom: -0.6rem;}
+                .title{ @include font-title; font-weight: 700; }
+             }
+        }
+
+
+     /*---------section download----------*/
+     &.section-download-wrap {
+          margin-bottom: 4rem;
+        .sc-title-wrap  {
+             @include flex-column;
+             .title {text-align: center; margin-bottom: 1rem;}
+             .description { @include font-basic; font-weight: 300; text-align: center; margin-bottom: 2rem;}
+             .ctaButton { color: $color-font-light-title; @include font-deskBasic; width: 230px; height: 56px; font-weight: 400; border: 1.5px solid $color-black; transition: all .5s ease;}
+             .ctaButton:hover {background-color: $color-black; color: $color-white; }
+          }
+         }
+
+
+    /*--------section process----------*/
+     &.section-process-wrap{
+         .inner{
+             @media screen and (min-width:960px){ @include flex-between; align-items: flex-start;}
+            .tab-list-wrap {
+                 @media screen and (min-width:960px){width: 50%;}
+                .mobile {
+                     @include flex-between; margin-bottom: 3.2rem;
+                     @media screen and (min-width:960px){ display: none;}
+                    li { 
+                         opacity: 0.5;  width: 33.33%; text-align: center; padding: 8px 0;
+                        a {font-weight: 600; @include font-basic; color:$color-font-light-title;}
+                        &.active { opacity: 1; border-bottom: 2px solid $color-black; }
+                     }
+                }
+                .pc {
+                    display: none;
+                    @media screen and (min-width:960px){ display: block;}
+                    li{ 
+                        opacity: 0.2; 
+                        &.active{
+                            opacity: 1;
+                            animation-name: ani-up ;
+                        }
+                        &:not(last-child){margin-bottom: 3rem;}
+                        .select-title{ 
+                            @include flex; align-items: center; cursor: pointer;
+                            span{
+                                margin-right: 8px;
+                                display: inline-block; width: 40px; height: 40px;
+                                background: url(../img/Logo-variation.svg);
+                                background-repeat: no-repeat;
+                                background-size: 40px auto;
+                                background-position: center;
+                                }
+                            margin-bottom: 12px; @include font-middleTitle; font-weight: 700;
+                        }
+                        .select-description{  cursor: pointer;
+                          margin-bottom: 8px;  @include font-small; font-weight: 300;
+                          span{ @include font-small;}
+                        }
+                        .select-button{
+                            cursor: pointer;
+                            padding: 0 0 4px 0; margin-top: 1rem; border-bottom: 1px solid $color-black;
+                            a{ @include font-basic; font-weight: 600;}
+                        }
+                    }
+                }
+            }
+            .icon-wrap{
+                ul{
+                    li{
+                        display: none; flex-direction: column; align-items: center; 
+                        &.active{  display: flex; align-content: center;}
+                         .result-title{ 
+                            @include font-title; font-weight: 600;
+                            @media screen and (min-width:960px){ display: none;} 
+                          }
+                         img{
+                            width: 210px;
+                            @media screen and (min-width:960px){ width: 320px;} 
+                            
+                        }
+                        .result-description{ 
+                            @include font-basic; text-align: center; font-weight: 300;
+                            @media screen and (min-width:960px){ display: none;}
+                        }
+                        .result-button{
+                            margin-top: 1rem;  border-bottom: 1px solid $color-black;
+                            a{ @include font-deskBasic; font-weight: 600;}
+                            @media screen and (min-width:960px){ display: none;}
+                        }
+                        
+                     }
+
+                 }
+
+             }
+         }
+     }
+
+        /*-----------section news----------*/
+        &.section-news-wrap{
+            .inner{
+                .title-wrap{
+                    margin-bottom: 2rem;
+                    h1{ @include font-subTitle; font-weight: 700;}
+                }
+                .cont-wrap{
+                    @media screen and (min-width:768px){
+                        @include flex; align-items: flex-start;
+                    }
+                    .item{
+                        @include flex-column; justify-content: space-between; align-items: flex-start;
+                        margin-bottom: 12px; padding: 16px; border-bottom-right-radius:2rem;
+                        background-color: $color-gray-02; cursor: pointer;
+                        @media screen and (min-width:768px){
+                            box-sizing: border-box; margin-right: 12px;  padding: 24px; height: 340px; }
+                        @media screen and (min-width:960px){ padding: 32px; }
+                            .top{
+                            .news-title{ margin-bottom: 1.2rem; @include font-deskBasic; font-weight: 400; color: $color-font-light-text;}
+                            .news-description{ @include font-small; font-weight: 300; color: $color-font-light-sub;}
+                        }
+                    
+                    }
+                }
+            }
+        }
+        /*============Section 끝============*/
+        } /*container*/
+
+          }
+
+ 
+         .footer{
+             text-align: center;
+            padding: 4rem 0;
+            background-color: $color-gray-02;
+            p{
+            @include font-small; color: $color-font-light-text; font-weight: 300;
+        }
+    }
+
+
+
+
+    /*페이지 준비중*/
+    .page-loading-wrap{
+        display: none;
+        position: fixed; top: 0; bottom: 0; right: 0; left: 0; z-index: 300;
+        background-color: rgba(0,0,0,0.7);
+        justify-content: center; align-items: center; align-content: center;
+        &.active{@include flex;}
+        .inner{
+            max-width: 360px;
+            padding: 32px;
+            @include flex-column; justify-content: center; align-items: center;
+            background-color: rgba(255,255,255,0.7); 
+            border-radius: 1.2rem;
+            & > p{
+                margin-bottom: 12px;
+                width: 40px; height: 40px;
+                background: url(../img/Logo-variation.svg);
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: 40px auto;
+            }
+            .text-wrap{
+                margin-bottom: 2rem;
+                h2{
+                    @include font-deskBasic; text-align: center; font-weight: 400;
+                    color: $color-font-light-text;
+                }
+                p{
+                    @include font-small; text-align: center; font-weight: 300;
+                    color: $color-font-light-sub;
+                }
+            }
+            
+            button{
+                    @include font-basic;
+                    color: $color-font-light-title; font-weight: 200;
+                    
+                }
+        }
+    }

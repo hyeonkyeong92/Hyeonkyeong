@@ -1,0 +1,430 @@
+@import "reset";
+@import "interface";
+@import "function";
+
+
+
+/*======================Wrap======================*/
+#wrap{
+    width: 100%;
+    overflow: hidden;
+    background-color: $color-bg-dark;
+}
+
+/*======================Header======================*/
+.header{
+    // background-color: $color-bg-dark;
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 0 24px; height: 4rem;
+    @media screen and (min-width:768px) { margin-bottom: 3.2rem; padding: 0 40px;}
+    @media screen and (min-width:1200px) { margin-bottom: 4rem; padding: 0 90px; height: 5.4rem;}
+    .h-menu{
+        height: 100%;  @include flex-between; 
+        .logo{
+            z-index:200; width: 32px; height: 32px;
+            cursor: pointer; 
+            a{ display: block; width: 100%; height: 100%; }
+        }
+        .gnb{
+            display: none;
+            @media screen and (min-width:1200px) { display: block;}
+            ul{
+                @include flex-between;
+                li{ 
+                    padding-right: 40px;
+                    &.active{
+                        a{color: $color-primary;}
+                    }
+                    a{
+                        color: $color-font-dark-text;
+                        &:hover{ color: $color-primary;}
+                    }
+                }
+            }
+        }
+
+        .toggler{
+            position: relative; width: 24px; height: 24px;
+            @media screen and (min-width:1200px) { display: none;}
+            &:before,
+            &:after{
+                content: "";
+                position: absolute;
+                background-color: $color-bg-light;
+                transition: transform 0.25s ease-out;
+            }
+        
+            /* Vertical line */
+            &:before{
+                top: 0;
+                left: 51%;
+                width: 1.5px;
+                height: 100%;
+                margin-left: -1px;
+            }
+        
+            /* horizontal line */
+            &:after{
+                top: 51%;
+                left: 0;
+                width: 100%;
+                height: 1.5px;
+                margin-top: -1px;
+            }
+            
+            &.active{
+                cursor: pointer;
+                &:before{ transform: rotate(45deg); background-color: $color-bg-dark; }
+                &:after{ transform: rotate(45deg); background-color: $color-bg-dark;}
+            }
+        }
+    }
+
+
+}/*header 끝*/
+
+
+
+
+.nav-wrap{
+    position: fixed; top: 0; right: 0; z-index: 7; width: 0%; height: 100vh;
+    transition: all 0.4s ease;
+    background-color: $color-bg-light;
+    @media screen and (min-width:1200px){ display: none;}
+    &.active{ 
+        width: 100%;
+        > ul{
+            transition: visibility 0.4s ease; transition-delay: 0.2s; visibility: visible;
+        }
+    }
+    & > ul{ 
+        @include flex-column; align-items: center;
+        position: fixed; top: 20%; left: 50%; visibility: hidden; transform: translateX(-50%);
+        @media screen and (min-width:768px) { top: 6rem; padding: 0 40px;}
+        @media screen and (min-width:1200px) { top: 10rem; padding: 0 60px;}
+        & > li{
+            list-style: none; padding: 0.5rem;
+            & >a{
+                position: relative; color: $color-font-light-title; text-decoration: none;
+                &::after{
+                    position: absolute; bottom: 0; left: 0;
+                    content: ""; display: block; width: 0; height: 2px; background-color: $color-main;
+                    transition: all 0.4s ease;
+                }
+            }
+        }
+    }
+}/*Nav List Wrap 끝*/
+
+/*====================Common======================*/
+
+.title-main{@include font-title; font-weight: 700; line-height: 1.3;}
+.title-sub{@include font-subTitle; font-weight: 600;}
+.title-deskTxt{@include font-deskBasic; font-weight: 600;}
+.title-txt{@include font-basic; font-weight: 200;}
+.title-small{@include font-small; font-weight: 200;}
+
+
+
+
+
+
+/*======================Container======================*/
+.container{
+    .mainVisual{
+        height: 100vh;
+        padding: 6rem 0 0 0 !important;
+        .inner{
+            height: 100%;
+            .titleWrap{
+                .mainTitle{margin-bottom: 1rem; @include font-mainVisualTitle; color: $color-font-dark-title; line-height: 1.2;}
+                p{ @include font-subTitle; font-weight: 200; color:$color-font-dark-text;}
+            }
+            background-image: url(../img/Logo-Main.svg);
+            background-repeat: no-repeat;
+            background-position: right bottom;
+            background-size: 320px;
+            @media screen and ( min-width:768px) { 
+                background-size: 440px;
+            }
+ 
+        }
+        
+    }
+    .section{
+        /*----section 공통스타일----*/
+        padding: 6rem 0;
+        .inner{
+            padding: 0 24px; 
+            @media screen and (min-width:768px) { padding: 2rem 40px;}
+            @media screen and (min-width:980px) { padding: 4rem 40px;}
+            @media screen and (min-width:1200px) { margin: 0 auto; padding: 6rem 60px; width: 1200px; max-width: 1200px;}
+            @media screen and (min-width:1400px) { width: 1400px; max-width: 1400px;}
+            .sc-title-wrap{
+                margin-bottom: 2rem;
+                p{
+                    @include font-title; font-weight: 700;
+                    color: $color-font-dark-title;}
+            }
+        }
+        
+        /*----project wrap----*/
+        &.section-project-wrap{
+            .inner{
+              .cont-wrap{
+                .row{
+                    @include flex-between; align-items: baseline;
+                    flex-direction: column;
+                    @media screen and (min-width:980px) {
+                        flex-direction: row;
+        
+                    }
+                    .item{
+                        cursor: pointer;
+                         padding: 1rem 8px; box-sizing: border-box;  min-width: 33%;
+                         @media screen and (min-width:980px) {
+                            padding: 2rem 8px;
+                         }
+                         .thumbnail{
+                            margin-bottom: 12px;
+                         }
+                         .infowrap{
+                            .label{
+                                color:$color-font-dark-dim;
+                                @include font-small;
+                                margin-bottom: 0;
+                            }
+                            .title{
+                                color:$color-font-dark-title;
+                                @include font-subTitle;
+                            }
+                            .menu{
+                                color:$color-font-dark-dim;
+                                @include font-small;
+                            }
+                         }
+                        }
+                }
+              }  
+            }
+        }
+        
+        /*----about wrap----*/
+        &.section-about-wrap{
+            .inner{
+                .sc-title-wrap{
+                    display: none;
+                    @media screen and (min-width:960px){ display: block;}
+                }
+                .cont-wrap{
+                    margin-top: -4rem;
+                    @media screen and (min-width:792px){
+                        @include flex; justify-content: space-around; align-items: flex-start;
+                    }
+                    .img-wrap{
+                        max-width: 340px;
+                        display: none;
+                        @media screen and (min-width:960px) {display: block; margin-left: -2.4rem; margin-top: 10rem;}
+                    }
+                    .text-wrap{
+                        p{
+                            text-align: center;
+                            color: $color-font-dark-text;
+                            span{ color: $color-font-dark-title;}
+                            @media screen and (min-width:960px){
+                                text-align: left;
+                            }
+                        }
+                        .introduce-wrap{
+                            margin-bottom: 8rem;
+                            .title{
+                                margin-bottom: 1.8rem; @include font-subTitle;
+                            }
+                            .menu{
+                                margin-top: 2rem;
+                                @include font-basic; font-weight: 200;
+                            }
+                        }
+                        .skill-wrap{
+                            width: auto;
+                            @media screen and (min-width:960px){max-width: 480px;}
+                            
+                            .title{ @include font-subTitle; color: $color-font-dark-title; font-weight: 600; margin-bottom: 2rem;}
+                            .skill-list-wrap{
+                                .skill-list{
+                                    margin-bottom: 4rem;
+                                    .sk-title{
+                                        position: relative;
+                                        @include flex-between; align-items: flex-end;
+                                        margin-bottom: 1.2rem; padding-bottom: 0.8rem;
+                                        &::after{ content: ""; clear: both; display: block; position: absolute; bottom: 0; left: 0; width: 100%; height: 1px; background-color: $color-gray-outline; transition: all .5s ease;}
+                                        &:hover::after{width: 100%;}
+                                        .title-sub{                                         @include font-deskBasic; font-weight: 600; color: $color-font-dark-title;}
+                                        .icon{  width: 28px; height: 28px; background-repeat: no-repeat; background-position: center; background-size: 100% auto;}
+                                    }
+                                    &:nth-child(1) .icon{ background-image: url(../img/Skill/Function=Plan\,\ Size=Medium.svg);}
+                                    &:nth-child(2) .icon{ background-image: url(../img/Skill/Function=UXUI\,\ Size=Medium.svg);}
+                                    &:nth-child(3) .icon{ background-image: url(../img/Skill/Function=Publish\,\ Size=Medium.svg);}
+                                    &:nth-child(4) .icon{ background-image: url(../img/Skill/Function=Drawing\,\ Size=Medium.svg);}
+                                    .sk-info{
+                                        .info-list{
+                                            margin-bottom: 0.8rem;
+                                            li{ @include font-basic; color: $color-font-dark-title; font-weight: 500; margin-bottom: 0.25rem;}
+                                        }
+                                        .info-menu{
+                                            @include font-basic; color:$color-font-dark-text; font-weight: 300;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }  
+                }
+            }
+        }
+        
+        
+        /*----etc wrap----*/
+        &.section-etc-wrap{
+            margin: 0;
+            background-color: $color-bg-light;
+            .inner-2{
+                padding: 0 0 0 24px;
+                width: 100vw !important; overflow-x: visible;
+                @media screen and (min-width:768px) { padding: 2rem 0px 2rem 40px;}
+                @media screen and (min-width:980px) { padding: 4rem 0px 4rem 40px;}
+                @media screen and (min-width:1200px) { margin-left: 50%; padding: 6rem 0px 6rem 60px; transform: translateX(-600px); }
+                @media screen and (min-width:1400px) { transform:translateX(-700px);}
+                .sc-title-wrap{
+                    @include flex; align-items: baseline;
+                    ul{ 
+                        margin-left: 1.6rem; @include flex;
+                        li{
+                            &.active{
+                                a{color: $color-font-light-title; font-weight: 600;}
+                            }
+                            &:nth-child(1){ margin-right: 12px;}
+                        }
+                    }
+                    p{ color: $color-font-light-title;}
+                } /*title*/
+                .cont-wrap{
+                    overflow-x: scroll;
+                    .list{
+                        @include flex; display:none;
+                        &.active{display: flex;}
+                        .img{
+                            min-width:260px;
+                            @media screen and (min-width:960px){min-width: 400px; }
+                            &:not(:last-child){ margin-right: 12px;}
+                            img {width: 100%; height: auto;}
+                            &:last-child{
+                                img { width: 100%; height: 100%;}
+                            }
+                        }
+                    }
+
+                }/*cont*/
+            } /*----inner----*/
+            
+        }
+        
+        
+        
+        }/*----section 끝----*/
+
+
+
+}/*container 끝*/
+
+
+/*======================Footer======================*/
+.footer{
+    padding: 1.8rem 0;
+    background-color: $color-main;
+    .inner{
+        padding: 0 24px;
+        @media screen and (min-width:768px) { padding: 1.8rem 40px;}
+        @media screen and (min-width:980px) { padding: 2rem 40px;}
+        @media screen and (min-width:1200px) { margin: 0 auto; padding: 2.4rem 60px; width: 1200px; max-width: 1200px;}
+        @media screen and (min-width:1400px) { width: 1400px; max-width: 1400px;}
+        
+        .f-title{ 
+            margin-bottom: 2rem; color: $color-font-dark-sub; @include font-title; font-weight: 700;
+            @media screen and (min-width:960px){ margin-bottom: 3rem;}
+            }
+        
+        .f-info-wrap{
+            margin-bottom: 2rem;
+            @media screen and (min-width:960px) {  @include flex; align-items: flex-start; }
+            .info{
+                margin-bottom: 2rem;
+                @media screen and (min-width:960px){ margin-right: 120px;}
+                p:nth-child(1){
+                    margin-bottom: 12px;
+                    @include font-deskBasic; font-weight: 500; color:$color-font-dark-title;
+                    @media screen and (min-widht:960px){ margin-bottom: 20px;}
+                }
+                .link-icon-wrap{
+                    @include flex;
+                    li{ 
+                        margin-right: 1rem;
+                        width: 52px; height: 52px; border-radius: 100%; background-color: rgba(255,255,255,0.15);
+                        a{
+                            width: 52px; height: 52px; display: block;
+                            background: url(../img/icon-link-youtube.svg); 
+                            background-repeat: no-repeat;
+                            background-position: center;}
+                            &:nth-child(2) > a{
+                                background: url(../img/icon-link-Instagram.svg);
+                                background-repeat: no-repeat;
+                            background-position: center;
+                            }
+                        }
+                }
+            }
+        }
+        p{color: $color-font-dark-text;}
+        .copyright{
+            @include font-small; font-weight: 300;
+        }
+    }
+}
+
+.page-loading-wrap{
+    display: none;
+    position: fixed; top: 0; bottom: 0; right: 0; left: 0; z-index: 300;
+    background-color: rgba(0,0,0,0.7);
+    justify-content: center; align-items: center;
+    &.active{@include flex;}
+    .inner{
+        padding: 32px;
+        @include flex-column; justify-content: center; align-items: center;
+        background-color: rgba(255,255,255,0.7); 
+        border-radius: 1.2rem;
+        & > p{
+            margin-bottom: 12px;
+            width: 40px; height: 40px;
+            background: url(../img/Logo-variation.svg);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 40px auto;
+        }
+        .text-wrap{
+            margin-bottom: 2rem;
+            h2{
+                @include font-deskBasic; text-align: center; font-weight: 400;
+                color: $color-font-light-text;
+            }
+            p{
+                @include font-small; text-align: center; font-weight: 300;
+                color: $color-font-light-sub;
+            }
+        }
+        
+        button{
+                @include font-basic;
+                color: $color-font-light-title; font-weight: 200;
+                
+            }
+    }
+}

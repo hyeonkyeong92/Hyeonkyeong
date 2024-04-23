@@ -1,0 +1,154 @@
+/********FONT STYLE********/
+.font-big-title{font-size: 34px;}
+.font-title{font-size: 26px;}
+.font-sub-title{font-size: 22px;}
+.font-desk{font-size: 18px;}
+.font-basic{font-size: 14px;}
+.font-small{font-size: 12px;}
+
+@media screen and (min-width:768px){
+  .font-big-title{font-size: 4.427vw;}
+  .font-title{font-size: 3.385vw;}
+  .font-sub-title{font-size: 2.864vw;}
+  .font-desk{font-size: 2vw;}
+  .font-basic{font-size: 1.5vw;}
+  .font-small{font-size: 1.3vw;}
+}
+@media screen and (min-width:1200px){
+  .font-big-title{font-size: 72px;}
+  .font-title{ font-size: 42px;}
+  .font-sub-title{ font-size: 30px;}
+  .font-desk{ font-size: 22px;}
+  .font-basic{font-size: 16px;}
+  .font-small{font-size: 14px;}
+}
+
+/*********CSS**********/
+
+body{
+  background-color: #004064;
+}
+
+
+/*========HEADER========*/
+
+.header {
+  display: flex; align-items: center; justify-content: space-between;
+  position: fixed; top: 0; left: 0; right: 0; z-index: 300; padding: 0 24px; height: 4rem;
+}
+
+.header .h-menu {
+  position: relative; z-index: 200;
+  width: 64px; height: 50px;
+}
+.header .h-menu .button-page-back {
+  position: absolute; top: 0; left: 0;
+  padding: 0.6rem; width: 64px; height: 50px;
+  background: url(../image/icon-arrow-back-w.svg) no-repeat; background-position: center; background-size: 28px auto;
+  cursor: pointer;
+}
+.header .logo {
+  width: 52px; height: 52px;
+}
+.header .logo a {
+    display: block; width: 100%; height: 100%;
+}
+/****NAV****/
+.nav-wrap{
+  padding-top: 6rem;
+}
+.nav-wrap .inner {
+  padding: 0 24px;
+}
+.nav-wrap .inner li a{
+  color: #fff; font-weight: 200;
+}
+.nav-wrap .inner li.on a{
+  font-weight: 500;
+}
+
+/*MEDIA QUERY*/
+@media (max-width: 320px) {
+  .nav-wrap .inner {
+    padding: 2rem 40px;
+  }
+}
+@media (min-width: 768px) {
+
+  .header {
+    margin-bottom: 3.2rem; padding: 0 40px;
+  }
+  .nav-wrap {
+    padding-top: 7rem;
+  }
+  .nav-wrap .inner {
+    padding: 2rem 40px;
+  }
+}
+@media (min-width: 1200px) {
+  .header {
+    margin-bottom: 4rem; height: 5.4rem;
+  }
+  .nav-wrap .inner {
+    margin: 0 auto; padding: 2rem 60px; width: 1200px; max-width: 1200px;
+  }
+}
+@media screen and (min-width: 1400px) {
+  .nav-wrap .inner {
+    width: 1400px; max-width: 1400px;
+  }
+}
+/*================Container================*/
+
+/********section 공통스타일********/
+.container .section{
+  padding: 4rem 0;
+}
+.container .section .inner {
+  padding: 0 24px;
+}
+@media screen and (min-width: 768px) {
+  .container .section .inner { padding: 2rem 40px;}
+}
+@media screen and (min-width: 980px) {
+
+}
+@media screen and (min-width: 1200px) {
+  .container .section .inner { margin: 0 auto; padding: 4rem 60px; width: 1200px;  max-width: 1200px; }
+}
+@media screen and (min-width: 1400px) {
+  .container .section .inner { width: 1400px; max-width: 1400px;}
+}
+.container .section-images-wrap .project-lists .lists:not(:first-child){display: none;}
+.container .section-images-wrap .list-wrap{
+  display: flex; flex-wrap: wrap; justify-content: flex-start;
+}
+.container .section-images-wrap .list-wrap .item{
+  width: 100%; margin-bottom: 0.4rem;
+}
+@media screen and (min-width: 768px) {
+  .container .section-images-wrap .list-wrap .item{ width: 49.4%;}
+  .container .section-images-wrap .list-wrap .item:not(:nth-child(even)){ margin-right: 0.5rem;}
+}
+@media screen and (min-width: 1200px){
+  .container .section-images-wrap .list-wrap .item{ width: 24.4%; margin-bottom: 0.3rem;}
+  .container .section-images-wrap .list-wrap .item:nth-child(even){margin-right: 0.54rem;}
+  .container .section-images-wrap .list-wrap .item:nth-child(4n){margin-right: 0;}
+}
+
+/*================MODAL================*/
+.modal-wrap{
+  display: none;
+  width: 100vw; height: 100vh; overflow: hidden;
+}
+.modal-wrap .bg{
+  position: fixed; top: 0; bottom: 0; left: 0; right: 0; 
+  background-color: aqua; opacity: .6;
+}
+.modal-wrap .img-wrap{
+  position: absolute; top: 0; bottom: 0; left: 0; right: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.modal-wrap .img-wrap img{ object-fit: contain;}
+
+

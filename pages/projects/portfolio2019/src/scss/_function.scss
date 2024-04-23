@@ -1,0 +1,90 @@
+/*FUNCITON*/
+/*컴포넌트 묶음*/
+
+
+/*Media Query*/
+$breakpoint-mobile: 320px;
+$breakpoint-tablet-mini: 768px;
+$breakpoint-tablet: 980px;
+$breakpoint-desktop: 1200px;
+
+
+/*button components*/
+@mixin button-main{}
+
+
+/*Flex*/
+@mixin flex{
+    display: flex; align-items: center;
+}
+@mixin flex-between {
+    display: flex; align-items: center; justify-content: space-between;
+}
+@mixin flex-center{
+    display: flex; align-items: center; justify-content: center;
+}
+@mixin flex-column{
+    display: flex; align-items: center; flex-direction: column;
+}
+
+
+/*========= 애니메이션 =========*/
+.obj-ani { transition: transform 0.8s ease 0s, opacity 1s ease-in 0s;  }
+.obj-vertical-ani{transition: transform 3s ease 0s; }
+
+@keyframes particle-move {
+    from { left: -10%; top:0;}
+    to   { left: 0; top:5%;}
+}
+//Sub-Lawshow
+@keyframes ani-card-flip{
+    to{transform: rotateY(180deg);}
+}
+
+@keyframes ani-flip{ 
+    to{transform: rotate3d( 0, 2, 0, 360deg);}
+}
+
+@keyframes ani-pin{
+    from{ transform: translateY(0);}
+    to{transform: translateY(-0.5em);}
+}
+
+@keyframes ani-rotate{
+    to{transform: rotate(360deg);}
+}
+
+@keyframes ani-right-left{
+    0%{transform: translate(0,0);}
+    40%{transform: translate(1em,-0.2em);}
+    100%{transform: translate(-1em,0);}
+}
+
+//Sub-Jadoo
+@keyframes left-appear-ani{
+    from{
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes right-appear-ani{
+    from{
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+@keyframes opa-appear-ani{
+    from{ opacity: 0; }
+    to{ opacity: 1; }
+}
+
+

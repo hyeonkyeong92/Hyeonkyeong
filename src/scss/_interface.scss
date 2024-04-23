@@ -1,0 +1,132 @@
+/*INTERFACE*/
+/*스타일 묶음*/
+
+/*=======color=======*/
+
+/*----main----*/
+$color-main:#111111;
+$color-primary:#00B2FF;
+$color-white: #ffffff;
+
+/*----bg----*/
+$color-bg-dark: #111111;
+$color-bg-light: #FFFFFF;
+
+/*----gray scale----*/
+$color-gray-outline: #9d9d9d;
+$color-gray-01: #e1e1e1;
+$color-gray-02: #F1F1F1;
+$color-gray-03: #F8F8F8;
+
+/*----color-font-light----*/
+$color-font-light-title:#222222;
+$color-font-light-sub:#393939;
+$color-font-light-text:#606060;
+$color-font-light-dim:#cccccc;
+
+/*----color-font-dark----*/
+$color-font-dark-title:#ffffff;
+$color-font-dark-sub:#eeeeee;
+$color-font-dark-text:#aaaaaa;
+$color-font-dark-dim:#6b6b6b;
+
+/*----color-gradient----*/
+$color-gradient-purple: linear-gradient(120deg, rgba(174,113,251,1) 0%, rgba(97,132,255,1) 100%);
+$color-gradient-blue: linear-gradient(120deg, rgba(99,230,254,1) 0%, rgba(99,115,254,1) 100%);
+$color-gradient-skyblue: linear-gradient(120deg, rgba(94,241,215,1) 0%, rgba(62,136,246,1) 100%);
+$color-gradient-lawshow:linear-gradient(120deg, rgba(94,226,254,.8) 0%, rgba(117,103,255,.8) 100%);
+
+
+
+/*----font system----*/
+@mixin font-mainVisualTitle{
+    font-size: 48px;
+    @media screen and (min-width:768px){
+        font-size: 5.66vw;}
+    @media screen and (min-width:1200px){
+        /*font-size: 47px;*/ font-size: 88px;}
+}
+@mixin font-bigTitle{
+    font-size: 42px;
+    @media screen and (min-width:768px){
+        font-size: 5.4688vw;}
+    @media screen and (min-width:1200px){
+        /*font-size: 47px;*/ font-size: 76px;}
+}
+
+@mixin font-title{
+    font-size: 30px;
+    @media screen and (min-width:768px){
+        font-size: 3.648vw;}
+    @media screen and (min-width:1200px){
+        /*font-size: 42px;*/ font-size: 52px;}
+}
+@mixin font-subTitle{
+    font-size: 20px;
+    @media screen and (min-width:768px){
+        font-size: 2.734vw;}
+    @media screen and (min-width:1200px){
+        font-size: 28px;}
+}
+@mixin font-deskBasic{
+    font-size: 17px;
+    @media screen and (max-width:320px){
+        font-size: 16px;}
+    @media screen and (min-width:768px){
+        font-size: 2vw;}
+    @media screen and (min-width:1200px){
+        font-size: 22px;}
+}
+@mixin font-basic{
+    font-size: 14px;
+    @media screen and (max-width:320px){
+        font-size: 13px;}
+    @media screen and (min-width:768px){
+        font-size: 1.823vw;}
+    @media screen and (min-width:980px){
+        font-size: 18px;}
+}
+@mixin font-small{
+    font-size: 13px;
+    @media screen and (max-width:320px){
+        font-size: 12px;}
+    @media screen and (min-width:768px){
+        font-size: 1.448vw;}
+    @media screen and (min-width:1200px){
+        font-size: 14px;}
+}
+
+
+/*----공통스타일----*/
+
+// .flex-between{ @include flex-between;}
+// .flex{ @include flex;}
+// .flex-column{ @include flex-column;}
+
+
+/*----Media Query----*/
+
+/*max-width:320px*/
+@mixin mobile {
+    @media (max-width: #{$breakpoint-mobile}) {
+      @content;
+    }
+}
+/*min-width:768px*/
+@mixin tablet-mini {
+    @media (min-width: #{$breakpoint-tablet-mini}) {
+      @content;
+    }
+}
+/*min-width:980px*/
+@mixin tablet {
+    @media (min-width: #{$breakpoint-tablet}) {
+      @content;
+    }
+}
+/*min-width:1200px*/
+@mixin desktop {
+    @media (min-width: #{$breakpoint-desktop}) {
+      @content;
+    }
+}
