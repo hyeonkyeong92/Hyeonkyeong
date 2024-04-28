@@ -1087,6 +1087,10 @@ button {
   align-items: center;
 }
 .footer .inner .f-info-wrap .info .link-icon-wrap li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
   margin-right: 1rem;
   width: 52px;
   height: 52px;
@@ -1094,15 +1098,15 @@ button {
   background-color: rgba(255, 255, 255, 0.15);
 }
 .footer .inner .f-info-wrap .info .link-icon-wrap li a {
-  width: 52px;
-  height: 52px;
+  width: 32px;
+  height: 32px;
   display: block;
   background: url(../img/icon-link-youtube.svg);
   background-repeat: no-repeat;
   background-position: center;
 }
-.footer .inner .f-info-wrap .info .link-icon-wrap li:nth-child(2) > a {
-  background: url(../img/icon-link-Instagram.svg);
+.footer .inner .f-info-wrap .info .link-icon-wrap li.insta > a {
+  background: url(../img/icon-link-instagram.svg);
   background-repeat: no-repeat;
   background-position: center;
 }

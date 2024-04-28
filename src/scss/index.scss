@@ -367,20 +367,19 @@
                 .link-icon-wrap{
                     @include flex;
                     li{ 
+                        @include flex; justify-content: center; align-items: center;
                         margin-right: 1rem;
                         width: 52px; height: 52px; border-radius: 100%; background-color: rgba(255,255,255,0.15);
                         a{
-                            width: 52px; height: 52px; display: block;
+                            width: 32px; height: 32px; display: block;
                             background: url(../img/icon-link-youtube.svg); 
                             background-repeat: no-repeat;
                             background-position: center;
-                            background-size: 32px auto;
                         }
                         &.insta > a{
                             background: url(../img/icon-link-instagram.svg);
                             background-repeat: no-repeat;
                             background-position: center;
-                            background-size: 32px auto;
                         }
                     }
                 }
