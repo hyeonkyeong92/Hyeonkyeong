@@ -373,13 +373,14 @@
                             width: 52px; height: 52px; display: block;
                             background: url(../img/icon-link-youtube.svg); 
                             background-repeat: no-repeat;
-                            background-position: center;}
-                            &:nth-child(2) > a{
-                                background: url(../img/icon-link-Instagram.svg);
-                                background-repeat: no-repeat;
                             background-position: center;
-                            }
                         }
+                        &.insta > a{
+                            background: url(../img/icon-link-Instagram.svg);
+                            background-repeat: no-repeat;
+                            background-position: center;
+                        }
+                    }
                 }
             }
         }
