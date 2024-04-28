@@ -1100,13 +1100,13 @@ button {
   background: url(../img/icon-link-youtube.svg);
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 24px auto;
+  background-size: 32px auto;
 }
 .footer .inner .f-info-wrap .info .link-icon-wrap li.insta > a {
   background: url(../img/icon-link-instagram.svg);
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 24px auto;
+  background-size: 32px auto;
 }
 .footer .inner p {
   color: #aaaaaa;
